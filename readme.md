@@ -1,10 +1,12 @@
 This is a minimalistic reproduction of ncs porting error
 
-Environment
-NCSDK V1.12.00 2018-01-10
-Python 2.7.12 - used for my scripts
-Python 3.5.2 - seems to be used when I call mvNCCheck or mvNCCompile
-tensorflow (1.4.0)
+Environment:
+
+* NCSDK V1.12.00 2018-01-10
+* Python 2.7.12 - used for my scripts 
+* Python 3.5.2 - seems to be used when I call mvNCCheck or mvNCCompile
+* tensorflow (1.4.0)
+
 
 network origin: https://github.com/mpatacchiola/deepgaze/blob/master/deepgaze/head_pose_estimation.py
 
