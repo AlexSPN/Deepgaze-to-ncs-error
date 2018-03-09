@@ -1,0 +1,196 @@
+digraph output {
+	Legend [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD  BGCOLOR = "#E0E0E0" COLSPAN="3">Layer</TD></TR>
+<TR><TD BGCOLOR = "#88FFFF"> Complexity <br/> (MFLOPs) </TD>
+<TD BGCOLOR = "#FF88FF"> Bandwidth <br/> (MB/s) </TD>
+<TD BGCOLOR = "#FFFF88"> Time <br/> (ms)</TD></TR>
+</TABLE>>
+ shape=plaintext]
+	Input [label="input: (64, 64, 3)"]
+	Relu [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">Relu</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(64, 64, 64)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#A4EEEB"> 14.155776 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#FEE4FB"> 32.61 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFF95"> 6.60 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	Input -> Relu
+	MaxPool [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">MaxPool</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(64, 32, 32)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#B0F0EE"> 0.262144 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#EFBBE8"> 489.22 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC3"> 1.02 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	Relu -> MaxPool
+	LRN [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">LRN</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(64, 32, 32)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#FDE0FA"> 76.79 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFBE"> 1.63 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	MaxPool -> LRN
+	Relu_1 [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">Relu_1</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(128, 32, 32)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#2ED1C6"> 150.994944 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#FEE2FA"> 55.21 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC"> 22.96 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	LRN -> Relu_1
+	MaxPool_1 [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">MaxPool_1</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(128, 16, 16)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#B0F0EE"> 0.131072 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#EFBBE9"> 480.53 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC7"> 0.52 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	Relu_1 -> MaxPool_1
+	LRN_1 [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">LRN_1</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(128, 16, 16)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#FDE0F9"> 80.92 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC5"> 0.78 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	MaxPool_1 -> LRN_1
+	Relu_2 [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">Relu_2</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(256, 16, 16)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#2ED1C6"> 150.994944 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#FEE3FB"> 46.24 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFF0"> 24.42 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	LRN_1 -> Relu_2
+	MaxPool_2 [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">MaxPool_2</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(256, 8, 8)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#B0F0EE"> 0.065536 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#F0BDE9"> 463.58 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCA"> 0.27 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	Relu_2 -> MaxPool_2
+	LRN_2 [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">LRN_2</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(256, 8, 8)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#B1F1EF"> 0.0 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#FDE0F9"> 82.43 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFC9"> 0.39 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	MaxPool_2 -> LRN_2
+	Relu_3 [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">Relu_3</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(256, 1, 1)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#A9EFEC"> 8.388608 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#B1179D"> 2277.75 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFAE"> 3.53 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	LRN_2 -> Relu_3
+	output [label=<
+<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR>
+    <TD  BGCOLOR = "#A3A3A3" COLSPAN="3">output</TD>
+</TR>
+<TR>
+    <TD  BGCOLOR = "#DDDDDD" COLSPAN="3">(1, 1, 1)</TD>
+</TR>
+<TR>
+    <TD BGCOLOR = "#B0F0EE"> 0.000512 <br/> (MFLOPs) </TD>
+    <TD BGCOLOR = "#FFE5FC"> 30.60 <br/> (MB/s) </TD>
+    <TD BGCOLOR = "#FFFFCC"> 0.03 <br/> (ms)</TD>
+</TR>
+</TABLE>>
+ shape=plaintext]
+	Relu_3 -> output
+	Output [label="output: [1, 1, 1]"]
+	output -> Output
+	Summary [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD  BGCOLOR = "#C60000" COLSPAN="3">Summary</TD></TR>
+<TR><TD  BGCOLOR = "#E2E2E2" COLSPAN="3">1 SHV Processors</TD></TR>
+<TR><TD  BGCOLOR = "#DADADA" COLSPAN="3">Inference time 62.15 ms</TD></TR>
+<TR><TD  BGCOLOR = "#E2E2E2" COLSPAN="3">Bandwidth 188.91 MB/sec</TD></TR>
+<TR><TD  BGCOLOR = "#DADADA" COLSPAN="3">This network is Compute bound</TD></TR>
+</TABLE>>
+ shape=plaintext]
+}

@@ -1,0 +1,96 @@
+mvNCCheck tf_model.meta -in input -on BiasAdd_1 -is 64 64
+
+Result:  (32, 32, 128)
+1) 5073 13.1
+2) 6097 13.05
+3) 5841 12.984
+4) 50513 12.98
+5) 6865 12.96
+Expected:  (1, 32, 32, 128)
+1) 5073 13.1278305
+2) 6097 13.068017
+3) 6865 13.00608
+4) 5841 12.994937
+5) 50513 12.983946
+------------------------------------------------------------
+ Obtained values 
+------------------------------------------------------------
+ Obtained Min Pixel Accuracy: 0.36829737946391106% (max allowed=2%), Pass
+ Obtained Average Pixel Accuracy: 0.03549348330125213% (max allowed=1%), Pass
+ Obtained Percentage of wrong values: 0.0% (max allowed=0%), Pass
+ Obtained Pixel-wise L2 error: 0.05141193255322472% (max allowed=1%), Pass
+ Obtained Global Sum Difference: 668.1698608398438
+
+
+
+
+
+
+
+
+
+mvNCCheck tf_model.meta -in input -on output -is 64 64
+Result:  (1, 1)
+1) 0 0.012535
+Expected:  (1, 1)
+1) 0 -0.15799513
+------------------------------------------------------------
+ Obtained values 
+------------------------------------------------------------
+ Obtained Min Pixel Accuracy: 107.93384313583374% (max allowed=2%), Fail
+ Obtained Average Pixel Accuracy: 107.93384313583374% (max allowed=1%), Fail
+ Obtained Percentage of wrong values: 100.0% (max allowed=0%), Fail
+ Obtained Pixel-wise L2 error: 107.93384756194273% (max allowed=1%), Fail
+ Obtained Global Sum Difference: 0.17053022980690002
+------------------------------------------------------------
+
+
+
+
+
+
+
+mvNCCheck tf_model.meta -in input -on Tanh_1 -is 64 64
+
+Traceback (most recent call last):
+  File "/usr/local/bin/mvNCCheck", line 152, in <module>
+    quit_code = check_net(args.network, args.image, args.inputnode, args.outputnode, args.nshaves, args.inputsize, args.weights, args)
+  File "/usr/local/bin/mvNCCheck", line 137, in check_net
+    timings, myriad_output = run_myriad(graph_file, args, file_gen=True)
+  File "/usr/local/bin/ncsdk/Controllers/MiscIO.py", line 192, in run_myriad
+    myriad_output = myriad_output.reshape(sz)
+ValueError: cannot reshape array of size 32768 into shape (1,32,32,128)
+
+
+
+
+
+
+
+
+
+
+mvNCCheck tf_model.meta -in input -on MaxPool_1 -is 64 64
+
+Result:  (16, 16, 128)
+1) 7035 1.0
+2) 14557 1.0
+3) 26300 1.0
+4) 26299 1.0
+5) 14559 1.0
+Expected:  (1, 16, 16, 128)
+1) 19152 1.0000001
+2) 3291 1.0000001
+3) 27216 1.0000001
+4) 6224 1.0000001
+5) 29147 1.0000001
+------------------------------------------------------------
+ Obtained values 
+------------------------------------------------------------
+ Obtained Min Pixel Accuracy: 199.9999761581421% (max allowed=2%), Fail
+ Obtained Average Pixel Accuracy: 24.71124529838562% (max allowed=1%), Fail
+ Obtained Percentage of wrong values: 32.208251953125% (max allowed=0%), Fail
+ Obtained Pixel-wise L2 error: 62.65325795888606% (max allowed=1%), Fail
+ Obtained Global Sum Difference: 8097.3818359375
+
+
